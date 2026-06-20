@@ -1,95 +1,78 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
 
-export default function Home() {
+import React from 'react';
+import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import { Globe2, Activity } from 'lucide-react';
+
+// Dynamically import 3D component to avoid SSR issues
+const EarthTwin = dynamic(() => import('@/components/3d/EarthTwin'), { ssr: false });
+
+export default function LandingPage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main style={{ position: 'relative', minHeight: '200vh', overflow: 'hidden' }}>
+      <EarthTwin />
+      
+      <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '20vh' }}>
+        
+        {/* Hero Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          style={{ textAlign: 'center', marginBottom: '60vh' }}
+        >
+          <h1 style={{ fontSize: '5rem', fontWeight: 700, letterSpacing: '-0.05em', marginBottom: '1rem' }}>
+            <span className="text-gradient">CARBON</span>VERSE
+          </h1>
+          <p style={{ fontSize: '1.5rem', color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem' }}>
+            The Climate RPG. Play for the planet. Level up your life.
+          </p>
+          <Link href="/app" className="glass-panel" style={{ padding: '1rem 3rem', fontSize: '1.2rem', fontWeight: 600, display: 'inline-block', transition: 'all 0.3s ease' }}>
+            Enter the Verse
+          </Link>
+        </motion.div>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* Scroll Story Section */}
+        <div style={{ width: '100%', maxWidth: '1200px', padding: '0 2rem' }}>
+          
+          <motion.div 
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="glass-panel"
+            style={{ padding: '4rem', marginBottom: '4rem', display: 'flex', gap: '2rem', alignItems: 'center' }}
           >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+            <Globe2 size={64} color="#3b82f6" />
+            <div>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Your Digital Twin</h2>
+              <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>
+                Every action you take in the real world visibly changes your personal digital Earth. Grow forests, clean oceans, and watch your planet thrive.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="glass-panel"
+            style={{ padding: '4rem', marginBottom: '10rem', display: 'flex', gap: '2rem', alignItems: 'center', flexDirection: 'row-reverse' }}
           >
-            Read our docs
-          </a>
+            <Activity size={64} color="#4ade80" />
+            <div style={{ textAlign: 'right' }}>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Future Simulator</h2>
+              <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>
+                Travel to 2035. See exactly how your current habits will shape your future city, wealth, and environment. Experience the impact before it happens.
+              </p>
+            </div>
+          </motion.div>
+
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </main>
   );
 }
