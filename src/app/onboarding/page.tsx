@@ -110,7 +110,7 @@ export default function OnboardingPage() {
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 700 }}>How do you get around?</h2>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     <div>
-                      <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Primary Transport</label>
+                      <div style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Primary Transport</div>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem' }}>
                         {(['walk', 'bicycle', 'public_transport', 'motorcycle', 'car', 'cab'] as TransportType[]).map(t => (
                           <button
@@ -125,8 +125,9 @@ export default function OnboardingPage() {
                       </div>
                     </div>
                     <div>
-                      <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Daily Commute (km)</label>
+                      <label htmlFor="dailyCommute" style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Daily Commute (km)</label>
                       <input 
+                        id="dailyCommute"
                         type="range" min="0" max="100" 
                         value={data.dailyCommuteKm}
                         onChange={(e) => setData({...data, dailyCommuteKm: parseInt(e.target.value)})}
@@ -143,7 +144,7 @@ export default function OnboardingPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 700 }}>What fuels you?</h2>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Diet Type</label>
+                    <div style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Diet Type</div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
                       {(['vegan', 'vegetarian', 'mixed_diet', 'meat_heavy'] as FoodType[]).map(t => (
                         <button
@@ -166,8 +167,9 @@ export default function OnboardingPage() {
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 700 }}>Powering your home</h2>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     <div>
-                      <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Monthly Electricity (kWh)</label>
+                      <label htmlFor="monthlyElectricity" style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Monthly Electricity (kWh)</label>
                       <input 
+                        id="monthlyElectricity"
                         type="range" min="50" max="1000" step="50"
                         value={data.monthlyElectricityKwh}
                         onChange={(e) => setData({...data, monthlyElectricityKwh: parseInt(e.target.value)})}
@@ -176,8 +178,9 @@ export default function OnboardingPage() {
                       <div style={{ fontSize: '1.5rem', fontWeight: 700, marginTop: '0.5rem', color: '#4ade80' }}>{data.monthlyElectricityKwh} kWh</div>
                     </div>
                     <div>
-                      <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Daily AC Usage (Hours)</label>
+                      <label htmlFor="dailyAcHours" style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Daily AC Usage (Hours)</label>
                       <input 
+                        id="dailyAcHours"
                         type="range" min="0" max="24" 
                         value={data.dailyAcHours}
                         onChange={(e) => setData({...data, dailyAcHours: parseInt(e.target.value)})}
@@ -195,7 +198,7 @@ export default function OnboardingPage() {
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 700 }}>Travel & Consumption</h2>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     <div>
-                      <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Shopping Habit</label>
+                      <div style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Shopping Habit</div>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
                         {(['low', 'moderate', 'high'] as ShoppingType[]).map(t => (
                           <button
@@ -211,8 +214,9 @@ export default function OnboardingPage() {
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                       <div>
-                        <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Domestic Flights / Yr</label>
+                        <label htmlFor="domesticFlights" style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Domestic Flights / Yr</label>
                         <input 
+                          id="domesticFlights"
                           type="number" min="0" 
                           value={data.domesticFlightsYearly}
                           onChange={(e) => setData({...data, domesticFlightsYearly: parseInt(e.target.value) || 0})}
@@ -220,8 +224,9 @@ export default function OnboardingPage() {
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Intl. Flights / Yr</label>
+                        <label htmlFor="internationalFlights" style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Intl. Flights / Yr</label>
                         <input 
+                          id="internationalFlights"
                           type="number" min="0" 
                           value={data.internationalFlightsYearly}
                           onChange={(e) => setData({...data, internationalFlightsYearly: parseInt(e.target.value) || 0})}
@@ -239,7 +244,7 @@ export default function OnboardingPage() {
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 700 }}>Waste & Mindset</h2>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     <div>
-                      <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Recycling Habits</label>
+                      <div style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Recycling Habits</div>
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
                         {(['recycle_always', 'recycle_sometimes', 'never_recycle'] as RecyclingType[]).map(t => (
                           <button
@@ -254,8 +259,9 @@ export default function OnboardingPage() {
                       </div>
                     </div>
                     <div>
-                      <label style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Climate Awareness Level</label>
+                      <label htmlFor="climateAwareness" style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Climate Awareness Level</label>
                       <select 
+                        id="climateAwareness"
                         value={data.climateAwareness}
                         onChange={(e) => setData({...data, climateAwareness: e.target.value as 'beginner' | 'intermediate' | 'expert'})}
                         style={{ width: '100%', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '1rem', color: '#fff', fontSize: '1.125rem' }}

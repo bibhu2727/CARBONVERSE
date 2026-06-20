@@ -9,7 +9,11 @@ interface CarbonShockCardProps {
   kgCO2: number;
 }
 
+import { useRouter } from 'next/navigation';
+
 export default function CarbonShockCard({ kgCO2 }: CarbonShockCardProps) {
+  const router = useRouter();
+  
   // Equivalents logic (mocked)
   const trees = Math.ceil(kgCO2 / 21); // ~21kg CO2 absorbed by a tree per year
   const flights = (kgCO2 / 500).toFixed(1); // mock estimate for short flight
@@ -30,7 +34,7 @@ export default function CarbonShockCard({ kgCO2 }: CarbonShockCardProps) {
         <button 
           onClick={() => {
             useEngine.getState().resetEngine();
-            window.location.href = '/onboarding';
+            router.push('/onboarding');
           }}
           style={{ padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', color: 'white', cursor: 'pointer', fontSize: '0.9rem' }}
         >
