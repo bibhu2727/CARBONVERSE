@@ -21,7 +21,7 @@ export default function FutureSimulator() {
       <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}><span className="text-gradient">Future Self 2035</span> Simulator</h2>
       <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem' }}>Adjust your current lifestyle sustainability to forecast your future environment.</p>
 
-      <input 
+      <input aria-label="Sustainability slider"
         type="range" 
         min="0" 
         max="100" 

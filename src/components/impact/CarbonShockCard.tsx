@@ -31,7 +31,7 @@ export default function CarbonShockCard({ kgCO2 }: CarbonShockCardProps) {
         <h2 style={{ fontSize: '1.5rem', margin: 0 }}>
           <span className="text-gradient">Carbon Shock</span> Analysis
         </h2>
-        <button 
+        <button aria-label="Update Profile Data"
           onClick={() => {
             useEngine.getState().resetEngine();
             router.push('/onboarding');

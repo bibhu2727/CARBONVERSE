@@ -27,7 +27,7 @@ export default function QuestsPage() {
                 <span style={{ color: '#fbbf24', fontWeight: 600 }}>+50 XP</span>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '1.5rem' }}>Avoid single-use plastics for 48 hours. Upload a picture of your reusable alternatives.</p>
-              <button style={{ padding: '0.5rem 1rem', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}>Accept Quest</button>
+              <button aria-label="Accept Zero Waste Weekend Quest" style={{ padding: '0.5rem 1rem', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}>Accept Quest</button>
             </div>
 
             <div className="glass-panel" style={{ padding: '2rem' }}>
@@ -36,7 +36,7 @@ export default function QuestsPage() {
                 <span style={{ color: '#a855f7', fontWeight: 600 }}>Bounty</span>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '1.5rem' }}>Report open garbage burning or illegal dumping in your area to alert local authorities.</p>
-              <button style={{ padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <button aria-label="Report Pollution" style={{ padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <AlertTriangle size={16} color="#f43f5e" /> Report Pollution
               </button>
             </div>

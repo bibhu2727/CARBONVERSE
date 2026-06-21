@@ -66,7 +66,7 @@ export default function EcoBuilder() {
           const canAfford = ecoMaterials >= config.cost;
 
           return (
-            <button 
+            <button aria-label={`Build ${config.label}`}
               key={type}
               onClick={() => buyAndPlaceItem(type)}
               disabled={!canAfford}

@@ -76,7 +76,7 @@ export default function RPGDashboard() {
               <Trophy size={16} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} color="#fbbf24" />
               {rank} • Lvl {level}
             </motion.div>
-            <button onClick={triggerDemoMode} style={{ display: 'block', marginTop: '1rem', padding: '0.5rem 1rem', background: '#f43f5e', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.8rem' }}>
+            <button aria-label="Trigger Judge Demo" onClick={triggerDemoMode} style={{ display: 'block', marginTop: '1rem', padding: '0.5rem 1rem', background: '#f43f5e', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.8rem' }}>
               🚀 Trigger Judge Demo
             </button>
           </div>
@@ -84,19 +84,19 @@ export default function RPGDashboard() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {/* Game Mode Tabs */}
             <div style={{ display: 'flex', gap: '0.5rem', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '12px' }}>
-              <button 
+              <button aria-label="City Builder Game Mode"
                 onClick={() => setActiveGameMode('builder')}
                 style={{ flex: 1, padding: '0.5rem', borderRadius: '8px', background: activeGameMode === 'builder' ? 'rgba(255,255,255,0.1)' : 'transparent', color: activeGameMode === 'builder' ? '#fff' : 'rgba(255,255,255,0.5)', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600, transition: 'all 0.2s' }}
               >
                 City Builder
               </button>
-              <button 
+              <button aria-label="Animal Rescue Game Mode"
                 onClick={() => setActiveGameMode('gacha')}
                 style={{ flex: 1, padding: '0.5rem', borderRadius: '8px', background: activeGameMode === 'gacha' ? 'rgba(255,255,255,0.1)' : 'transparent', color: activeGameMode === 'gacha' ? '#fff' : 'rgba(255,255,255,0.5)', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600, transition: 'all 0.2s' }}
               >
                 Animal Rescue
               </button>
-              <button 
+              <button aria-label="Skill Tree Game Mode"
                 onClick={() => setActiveGameMode('skilltree')}
                 style={{ flex: 1, padding: '0.5rem', borderRadius: '8px', background: activeGameMode === 'skilltree' ? 'rgba(255,255,255,0.1)' : 'transparent', color: activeGameMode === 'skilltree' ? '#fff' : 'rgba(255,255,255,0.5)', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600, transition: 'all 0.2s' }}
               >

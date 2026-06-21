@@ -42,7 +42,7 @@ export default function MissionEngine() {
                 <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', color: '#60a5fa' }}>🪙 {mission.coinReward} Coins</span>
               </div>
             </div>
-            <button style={{ padding: '0.5rem 1rem', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}>
+            <button aria-label={`Complete ${mission.title}`} style={{ padding: '0.5rem 1rem', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}>
               Complete
             </button>
           </motion.div>

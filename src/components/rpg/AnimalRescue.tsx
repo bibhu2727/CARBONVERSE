@@ -82,7 +82,7 @@ export default function AnimalRescue() {
         </AnimatePresence>
       </div>
 
-      <button 
+      <button aria-label="Rescue Animal"
         onClick={handlePull}
         disabled={rescueTickets < 1 || isPulling}
         style={{ 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, useMotionValue, useTransform, animate, Variants } from 'framer-motion';
 import { generateRelatableMetrics, generateNationalSimulation } from '../../utils/awarenessEngine';
 import { useEngine } from '../../store/useEngine';
 import { TreePine, BatteryCharging, Plane, Globe2, AlertTriangle, ArrowRight, Zap, Target, Sparkles } from 'lucide-react';
@@ -20,7 +20,7 @@ function AnimatedNumber({ value }: { value: number }) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const floatVariant: any = {
+const floatVariant: Variants = {
   animate: {
     y: [0, -10, 0],
     transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
@@ -41,13 +41,13 @@ export default function InsightGenerator({ onContinue }: InsightGeneratorProps) 
   const simulation = generateNationalSimulation(annualFootprintKg);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const containerVariants: any = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.3, delayChildren: 0.2 } }
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const itemVariants: any = {
+  const itemVariants: Variants = {
     hidden: { y: 40, opacity: 0, scale: 0.95 },
     visible: { y: 0, opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 80, damping: 20 } }
   };

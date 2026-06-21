@@ -29,7 +29,7 @@ export default function LandingPage() {
           <p style={{ fontSize: '1.5rem', color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem' }}>
             The Climate RPG. Play for the planet. Level up your life.
           </p>
-          <Link href="/app" className="glass-panel" style={{ padding: '1rem 3rem', fontSize: '1.2rem', fontWeight: 600, display: 'inline-block', transition: 'all 0.3s ease' }}>
+          <Link aria-label="Enter the Verse application" href="/app" className="glass-panel" style={{ padding: '1rem 3rem', fontSize: '1.2rem', fontWeight: 600, display: 'inline-block', transition: 'all 0.3s ease' }}>
             Enter the Verse
           </Link>
         </motion.div>

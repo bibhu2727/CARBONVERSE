@@ -76,7 +76,7 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--background)', color: 'var(--foreground)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', position: 'relative', overflow: 'hidden' }}>
+    <main style={{ minHeight: '100vh', background: 'var(--background)', color: 'var(--foreground)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', position: 'relative', overflow: 'hidden' }}>
       {/* Background gradients */}
       <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '50%', height: '50%', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '50%', filter: 'blur(120px)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '50%', height: '50%', background: 'rgba(6, 182, 212, 0.1)', borderRadius: '50%', filter: 'blur(120px)', pointerEvents: 'none' }} />
@@ -113,7 +113,7 @@ export default function OnboardingPage() {
                       <div style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Primary Transport</div>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem' }}>
                         {(['walk', 'bicycle', 'public_transport', 'motorcycle', 'car', 'cab'] as TransportType[]).map(t => (
-                          <button
+                          <button aria-label={`Select ${t.replace('_', ' ')} as primary transport`}
                             key={t}
                             onClick={() => setData({ ...data, primaryTransport: t })}
                             className="glass-panel"
@@ -147,7 +147,7 @@ export default function OnboardingPage() {
                     <div style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Diet Type</div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
                       {(['vegan', 'vegetarian', 'mixed_diet', 'meat_heavy'] as FoodType[]).map(t => (
-                        <button
+                        <button aria-label={`Select ${t.replace('_', ' ')} diet`}
                           key={t}
                           onClick={() => setData({ ...data, dietType: t })}
                           className="glass-panel"
@@ -201,7 +201,7 @@ export default function OnboardingPage() {
                       <div style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Shopping Habit</div>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
                         {(['low', 'moderate', 'high'] as ShoppingType[]).map(t => (
-                          <button
+                          <button aria-label={`Select ${t} shopping habit`}
                             key={t}
                             onClick={() => setData({ ...data, shoppingHabit: t })}
                             className="glass-panel"
@@ -247,7 +247,7 @@ export default function OnboardingPage() {
                       <div style={{ display: 'block', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Recycling Habits</div>
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
                         {(['recycle_always', 'recycle_sometimes', 'never_recycle'] as RecyclingType[]).map(t => (
-                          <button
+                          <button aria-label={`Select ${t.replace('_', ' ')} recycling habit`}
                             key={t}
                             onClick={() => setData({ ...data, recyclingHabit: t })}
                             className="glass-panel"
@@ -281,7 +281,7 @@ export default function OnboardingPage() {
 
         {/* Navigation */}
         <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <button 
+          <button aria-label="Previous step"
             onClick={handlePrev}
             style={{ padding: '1rem', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', color: '#fff', border: 'none', cursor: 'pointer', transition: 'all 0.3s', opacity: step === 1 ? 0 : 1, pointerEvents: step === 1 ? 'none' : 'auto' }}
           >
@@ -289,14 +289,14 @@ export default function OnboardingPage() {
           </button>
 
           {step < 5 ? (
-            <button 
+            <button aria-label="Next step"
               onClick={handleNext}
               style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: '#fff', color: '#000', padding: '1rem 2rem', borderRadius: '999px', fontWeight: 'bold', border: 'none', cursor: 'pointer' }}
             >
               Continue <ArrowRight size={20} />
             </button>
           ) : (
-            <button 
+            <button aria-label="Analyze Identity"
               onClick={handleSubmit}
               style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(90deg, #10b981, #06b6d4)', color: '#fff', padding: '1rem 2rem', borderRadius: '999px', fontWeight: 'bold', border: 'none', cursor: 'pointer', boxShadow: '0 0 30px rgba(16,185,129,0.3)' }}
             >
@@ -305,6 +305,6 @@ export default function OnboardingPage() {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

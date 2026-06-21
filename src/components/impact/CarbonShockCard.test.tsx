@@ -6,7 +6,7 @@ import CarbonShockCard from './CarbonShockCard';
 jest.mock('framer-motion', () => ({
   motion: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    div: ({ children, ...props }: any) => {
+    div: ({ children, ...props }: { children: React.ReactNode }) => {
       // Remove framer-motion specific props
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { initial, animate, ...rest } = props;
